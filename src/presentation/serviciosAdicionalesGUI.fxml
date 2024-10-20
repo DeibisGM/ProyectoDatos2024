@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.ServiciosAdicionalesController">
+    <children>
+        <VBox spacing="20" alignment="CENTER"
+              AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <Label text="Servicios Adicionales" style="-fx-text-fill: #2c3e50;">
+                <font>
+                    <Font name="System Bold" size="28"/>
+                </font>
+            </Label>
+
+            <TableView fx:id="serviciosTableView" maxWidth="500">
+                <columns>
+                    <TableColumn text="Nombre de empresa"/>
+                    <TableColumn text="Hora entrada"/>
+                    <TableColumn text="Hora salida"/>
+                    <TableColumn text="Cantidad de contrataciones"/>
+                    <TableColumn text="Precio"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <children>
+                    <TextField fx:id="empresaField" promptText="Nombre de empresa"/>
+                    <TextField fx:id="horaEntradaField" promptText="Hora entrada"/>
+                    <TextField fx:id="horaSalidaField" promptText="Hora salida"/>
+                    <TextField fx:id="cantidadField" promptText="Cantidad de contrataciones"/>
+                    <TextField fx:id="precioField" promptText="Precio"/>
+                </children>
+            </HBox>
+
+            <HBox spacing="10">
+                <children>
+                    <TextField fx:id="encargadoNombreField" promptText="Nombre del encargado"/>
+                    <TextField fx:id="encargadoIdField" promptText="Identificación"/>
+                    <TextField fx:id="encargadoCorreoField" promptText="Correo"/>
+                    <TextField fx:id="encargadoGeneroField" promptText="Género"/>
+                    <TextField fx:id="encargadoTelefonoField" promptText="Teléfono"/>
+                </children>
+            </HBox>
+
+            <Button text="Agregar Servicio" onAction="#agregarServicio"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5;
+                           -fx-padding: 8 16; -fx-cursor: hand;"/>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.CarruselEventosController">
+    <children>
+        <VBox alignment="CENTER" spacing="20" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+            <children>
+                <Label fx:id="tituloLabel" text="Carrusel de Eventos" style="-fx-text-fill: #2c3e50;">
+                    <font>
+                        <Font name="System Bold" size="28"/>
+                    </font>
+                </Label>
+
+                <VBox alignment="CENTER" spacing="15" style="-fx-background-color: white; -fx-background-radius: 8;" maxWidth="500">
+                    <padding>
+                        <Insets top="25" right="30" bottom="25" left="30"/>
+                    </padding>
+
+                    <Label fx:id="eventoLabel" wrapText="true" textAlignment="CENTER" style="-fx-text-fill: #34495e;">
+                        <font>
+                            <Font size="16"/>
+                        </font>
+                    </Label>
+
+                    <Label fx:id="estadoLabel" wrapText="true" textAlignment="CENTER" style="-fx-text-fill: #7f8c8d;">
+                        <font>
+                            <Font name="System Italic" size="14"/>
+                        </font>
+                    </Label>
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="20">
+                    <children>
+                        <Button text="Anterior" onAction="#mostrarAnterior"
+                                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5;
+                                       -fx-padding: 8 16; -fx-cursor: hand;"/>
+                        <Button text="Siguiente" onAction="#mostrarSiguiente"
+                                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5;
+                                       -fx-padding: 8 16; -fx-cursor: hand;"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
