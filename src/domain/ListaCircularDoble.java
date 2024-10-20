@@ -1,6 +1,5 @@
 package domain;
 
-// ListaCircularDoble.java
 public class ListaCircularDoble<T> {
     private Nodo<T> cabeza;
     private Nodo<T> cola;
@@ -19,6 +18,11 @@ public class ListaCircularDoble<T> {
             cola = nuevoNodo;
         }
     }
+
+    public Nodo<T> getCabeza() {
+        return cabeza;
+    }
+
     public void eliminar(T dato) {
         if (cabeza == null) return;
         Nodo<T> current = cabeza;
@@ -55,5 +59,4 @@ public class ListaCircularDoble<T> {
         } while (current != cabeza);
         return null;
     }
-
 }

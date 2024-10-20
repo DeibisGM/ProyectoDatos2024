@@ -6,7 +6,7 @@ public class ListaSimple<T> {
     private Nodo<T> cabeza;
     private int tamanno;
 
-    public void agregar(T dato) {
+    public void add(T dato) {
         Nodo<T> nuevo = new Nodo<>(dato);
         if (cabeza == null) {
             cabeza = nuevo;
@@ -40,6 +40,4 @@ public class ListaSimple<T> {
         }
         return false;
     }
-
-    // Otros métodos útiles
 }

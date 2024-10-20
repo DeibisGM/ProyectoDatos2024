@@ -1,1 +1,40 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root-container {
+    -fx-background-color: white;
+}
+
+.header-label {
+    -fx-background-color: transparent; /* Sin fondo */
+    -fx-text-fill: black; /* Texto negro */
+    -fx-font-size: 14px; /* Tamaño de fuente más pequeño */
+    -fx-font-weight: normal; /* Peso de fuente normal (puedes cambiarlo si prefieres) */
+    -fx-padding: 5; /* Ajusta el padding si es necesario */
+    -fx-alignment: center; /* Alineación centrada (si aplica al contenedor) */
+}
+
+
+.personal-table {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+}
+
+.personal-table .column-header {
+    -fx-background-color: #f5f6fa;
+    -fx-padding: 5;
+}
+
+.personal-table .table-cell {
+    -fx-alignment: center-left;
+    -fx-padding: 5;
+}
+
+.add-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.add-button:hover {
+    -fx-background-color: #27ae60;
+}
