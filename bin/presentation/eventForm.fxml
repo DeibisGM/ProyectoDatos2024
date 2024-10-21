@@ -1,45 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21"
-            fx:controller="business.EventFormController">
-    <children>
-        <!-- Datos del evento -->
-        <Label layoutX="25" layoutY="25" text="Nombre del Evento:"/>
-        <TextField fx:id="eventName" layoutX="200" layoutY="25" prefWidth="200"/>
+<AnchorPane prefHeight="586.0" prefWidth="517.0" styleClass="root" stylesheets="@../business/application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.EventFormController">
 
-        <Label layoutX="25" layoutY="75" text="Tipo de Evento:"/>
-        <ComboBox fx:id="eventType" layoutX="200" layoutY="75" prefWidth="200"/>
+    <VBox prefHeight="905.0" prefWidth="1047.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
 
-        <Label layoutX="25" layoutY="125" text="Detalles/Descripción:"/>
-        <TextArea fx:id="eventDetails" layoutX="200" layoutY="125" prefHeight="100" prefWidth="200"/>
+        <!-- Fixed Header -->
+        <VBox styleClass="header-container">
+            <Label styleClass="header-title" text="Crear Nuevo Evento" />
+            <Label fx:id="lb_ErrorMessage" text="Completa el formulario para crear un nuevo evento" textFill="#717171">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Label>
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="10.0" top="30.0" />
+            </padding>
+        </VBox>
+   
+        <!-- Scrollable Content -->
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane" VBox.vgrow="ALWAYS">
+            <VBox spacing="24" styleClass="content-container">
+                <!-- Basic Info Section -->
+                <VBox spacing="24" styleClass="section-container">
+   
+                    <VBox spacing="16">
+                       <Label styleClass="section-title" text="Información Básica" />
+                        <!-- Event Name -->
+                        <VBox styleClass="field-container">
+                            <Label styleClass="field-label" text="Nombre del evento" />
+                            <TextField fx:id="eventName" promptText="Ingrese el nombre del evento" styleClass="text-field" />
+                        </VBox>
+   
+                        <!-- Event Type -->
+                        <VBox styleClass="field-container">
+                            <Label styleClass="field-label" text="Tipo de evento" />
+                            <ComboBox fx:id="eventType" maxWidth="Infinity" promptText="Seleccione el tipo de evento" />
+                        </VBox>
+   
+                        <!-- Location -->
+                        <VBox styleClass="field-container">
+                            <Label styleClass="field-label" text="Lugar" />
+                            <TextField fx:id="eventPlace" promptText="Ingrese el lugar del evento" styleClass="text-field" />
+                        </VBox>
+   
+                        <!-- Date and Time -->
+                        <HBox spacing="16">
+                            <VBox styleClass="field-container" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="Fecha del evento" />
+                                <DatePicker fx:id="eventDate" maxWidth="Infinity" styleClass="date-picker" />
+                            </VBox>
+                            <VBox styleClass="field-container" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="Hora del evento" />
+                                <TextField fx:id="eventTime" promptText="HH:mm" styleClass="text-field" />
+                            </VBox>
+                        </HBox>
+   
+                        <!-- Description -->
+                        <VBox styleClass="field-container">
+                            <Label styleClass="field-label" text="Descripción" />
+                            <TextArea fx:id="eventDescription" prefRowCount="4" promptText="Describa el evento" styleClass="text-area" wrapText="true" />
+                        </VBox>
+                    </VBox>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+                </VBox>
+   
+                <!-- Capacity & Zones Section -->
+                <VBox spacing="24" styleClass="section-container">
+   
+                    <!-- Capacity -->
+                    <VBox styleClass="field-container">
+                       <Label styleClass="section-title" text="Capacidad y Zonas" />
+                        <Label styleClass="field-label" text="Capacidad del evento" />
+                        <HBox spacing="8">
+                            <TextField fx:id="eventCapacity" promptText="Ingrese la capacidad" styleClass="text-field" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="btnAddCapacity" prefWidth="200.0" styleClass="button-secondary" text="Agregar mas asientos" />
+                        </HBox>
+                    </VBox>
+   
+                    <!-- Zones List -->
+                    <VBox spacing="8" VBox.vgrow="ALWAYS">
+                        <Label styleClass="field-label" text="Lista de zonas" />
+                        <ListView fx:id="zoneList" prefHeight="200" styleClass="list-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label styleClass="placeholder" text="Aquí va una lista con lo agregado" />
+                            </placeholder>
+                        </ListView>
+                        <HBox spacing="8">
+                            <Button prefWidth="175.0" styleClass="button-secondary" text="Asignar zonas" />
+                            <Button fx:id="btnResetZones" prefWidth="175.0" styleClass="button-danger" text="Eliminar zonas" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+   
+                <!-- Personnel Section -->
+                <VBox spacing="24" styleClass="section-container">
+                    <VBox spacing="8" VBox.vgrow="ALWAYS">
+                       <Label styleClass="section-title" text="Personal" />
+                        <Label styleClass="field-label" text="Personal Asignado al evento" />
+                        <ListView fx:id="personalList" prefHeight="200" styleClass="list-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label styleClass="placeholder" text="Aquí va una lista con lo agregado" />
+                            </placeholder>
+                        </ListView>
+                        <Button prefWidth="175.0" styleClass="button-secondary" text="Asignar Personal" />
+                    </VBox>
+                </VBox>
+   
+                <!-- Services Section -->
+                <VBox spacing="24" styleClass="section-container">
+                    <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+                       <Label styleClass="section-title" text="Servicios" />
+                        <Label styleClass="field-label" text="Servicios adicionales" />
+                        <ListView fx:id="servicesList" prefHeight="200" styleClass="list-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label styleClass="placeholder" text="Aquí va una lista con lo agregado" />
+                            </placeholder>
+                        </ListView>
+                        <Button prefWidth="250.0" styleClass="button-secondary" text="Asignar servicios adicionales" />
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
 
-        <Label layoutX="25" layoutY="250" text="Fecha:"/>
-        <DatePicker fx:id="eventDate" layoutX="200" layoutY="250" prefWidth="200"/>
-
-        <Label layoutX="25" layoutY="300" text="Hora:"/>
-        <TextField fx:id="eventTime" layoutX="200" layoutY="300" prefWidth="200" promptText="HH:mm"/>
-
-        <Label layoutX="25" layoutY="350" text="Lugar del Evento:"/>
-        <TextField fx:id="eventPlace" layoutX="200" layoutY="350" prefWidth="200"/>
-
-        <Label layoutX="25" layoutY="400" text="Capacidad Máxima de Personas:"/>
-        <HBox spacing="10" layoutX="200" layoutY="400">
-            <TextField fx:id="eventCapacity" prefWidth="200"/>
-            <Button fx:id="btnAddCapacity" text="Agregar Asientos" onAction="#handleAddCapacity"/>
-            <Button fx:id="btnResetZones" text="Eliminar Zonas" onAction="#handleResetZones"/>
-        </HBox>
-
-        <!-- Sección de Zonas -->
-        <Separator layoutX="25" layoutY="450" prefWidth="550"/>
-        <Label layoutX="25" layoutY="470" text="Zonas del Evento" style="-fx-font-weight: bold"/>
-
-        <Button layoutX="200" layoutY="470" onAction="#openZoneForm" text="Gestionar Zonas"/>
-        <ListView fx:id="zoneList" layoutX="25" layoutY="500" prefHeight="150" prefWidth="550"/>
-
-        <!-- Botón crear evento -->
-        <Button fx:id="bt_CreateEvent" layoutX="250" layoutY="670" onAction="#handleCreateEvent" text="Crear Evento"/>
-    </children>
+        <!-- Fixed Footer -->
+        <VBox spacing="8" styleClass="footer">
+            <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="1150.0" spacing="10.0" styleClass="footer-buttons">
+                <Button prefHeight="42.0" prefWidth="150.0" styleClass="button-secondary" text="Cancelar" />
+                <Button prefWidth="150.0" styleClass="button-primary" text="Crear Evento" />
+            </HBox>
+        </VBox>
+    </VBox>
 </AnchorPane>

@@ -22,6 +22,10 @@ public class EventFormController {
 
     private static final String EVENT_FORM_PATH = "/presentation/Main.fxml";
     private static final String ZONE_FORM_PATH = "/presentation/zoneForm.fxml";
+    public Label lb_ErrorMessage;
+    public TextArea eventDescription;
+    public ListView personalList;
+    public ListView servicesList;
 
     @FXML
     private Button bt_CreateEvent;
