@@ -1,0 +1,181 @@
+# Requerimientos Detallados - Sistema de Gestión de Eventos
+
+## 1. Clase Evento
+Cada evento DEBE tener:
+- Nombre del evento
+- Tipo de evento
+- Detalles/descripción
+- Fecha y hora (usando LocalDateTime)
+- Lugar del evento
+- Capacidad máxima de personas
+- Estado del evento (activo/pasado) calculado automáticamente según la fecha actual
+- Para eventos futuros con más de un mes: mostrar cantidad de meses faltantes
+- Lista de zonas disponibles
+- Lista de personal asignado
+- Lista de servicios adicionales
+
+## 2. Clase Zona (para asientos)
+Cada zona DEBE tener:
+- Nombre de la zona (palco, VIP, etc.)
+- Precio específico
+- Número total de espacios disponibles
+- Categoría
+- Lista de asientos/espacios
+- Estado de disponibilidad
+- Numeración de espacios
+
+## 3. Clase Reserva
+Cada reserva DEBE incluir:
+- Nombre del cliente
+- Número de identificación
+- Método de pago (solo SINPE o transferencia)
+- Correo electrónico
+- Género
+- Indicador si es primera vez reservando en línea
+- Total a pagar
+- Lista de asientos reservados
+- Estado de la reserva (pendiente, confirmada, cancelada)
+
+## 4. Clase Personal
+Cada miembro del personal DEBE tener:
+- Nombre completo
+- Número de identificación
+- Correo electrónico
+- Puesto específico (ayudante, encargado, animador, DJ)
+- Fecha de nacimiento
+- Número de cuenta bancaria
+- Estado (activo/inactivo)
+- Horario asignado
+
+## 5. Clase ServicioAdicional
+Cada servicio DEBE incluir:
+- Nombre de la empresa proveedora
+- Hora de entrada
+- Hora de salida
+- Cantidad de personal/contrataciones
+- Precio del servicio
+- Encargado asignado con:
+  * Nombre
+  * Identificación
+  * Correo electrónico
+  * Género
+  * Teléfono de contacto
+
+## 6. Estructuras de Datos Requeridas
+
+### 6.1 Lista Circular Doble (para el carrusel)
+Debe implementar:
+- Nodo anterior y siguiente
+- Métodos para:
+  * Agregar evento
+  * Eliminar evento
+  * Navegar adelante/atrás
+  * Mostrar evento actual
+  * Verificar si está vacía
+
+### 6.2 Cola (para reservaciones)
+Debe implementar:
+- Métodos para:
+  * Encolar nueva reserva
+  * Desencolar reserva
+  * Ver primera reserva
+  * Verificar si está vacía
+  * Obtener tamaño actual
+
+### 6.3 Lista Simple/Doble
+Para personal y servicios, debe implementar:
+- Métodos para:
+  * Agregar elemento
+  * Eliminar elemento
+  * Buscar elemento
+  * Modificar elemento
+  * Listar elementos
+
+## 7. Funcionalidades del Sistema
+
+### 7.1 Gestión de Eventos
+- Agregar nuevo evento
+- Modificar evento existente
+- Eliminar evento
+- Mostrar lista de eventos
+- Filtrar eventos por fecha/tipo
+- Calcular estado del evento automáticamente
+
+### 7.2 Gestión de Reservas
+- Crear nueva reserva
+- Procesar cola de reservas
+- Validar disponibilidad
+- Calcular total a pagar
+- Generar confirmación
+- Cancelar reserva
+
+### 7.3 Gestión de Zonas
+- Agregar zonas a eventos
+- Modificar precios
+- Actualizar disponibilidad
+- Mostrar mapa de asientos
+- Generar reporte de ocupación
+
+### 7.4 Gestión de Personal y Servicios
+- Asignar personal a eventos
+- Registrar servicios adicionales
+- Modificar horarios
+- Generar reportes de asignación
+
+## 8. Requerimientos de Interfaz
+
+### 8.1 Carrusel de Eventos
+- Mostrar un evento a la vez
+- Botones de navegación (anterior/siguiente)
+- Indicador visual de estado del evento
+- Mostrar meses faltantes cuando aplique
+
+### 8.2 Formularios
+- Registro de eventos
+- Proceso de reserva
+- Gestión de personal
+- Registro de servicios
+
+### 8.3 Reportes
+- Disponibilidad por zona
+- Lista de reservas
+- Personal asignado
+- Servicios contratados
+
+## 9. Persistencia de Datos
+
+### 9.1 Estructura XML
+Archivos separados para:
+- Eventos
+- Reservas
+- Personal
+- Servicios
+- Configuración general
+
+### 9.2 Utils
+Archivo separado para:
+- Rutas de imágenes
+- Configuraciones
+- Constantes del sistema
+
+## 10. Validaciones Obligatorias
+
+### 10.1 Eventos
+- Fechas válidas
+- Capacidad máxima coherente
+- No duplicación de eventos
+
+### 10.2 Reservas
+- Disponibilidad real de asientos
+- Validez de datos personales
+- Método de pago válido
+
+### 10.3 Personal
+- No duplicación de identificaciones
+- Correos válidos
+- Horarios coherentes
+
+### 10.4 Servicios
+- Horarios válidos
+- Precios positivos
+- Datos de contacto completos

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21"
+            fx:controller="business.EventFormController">
+    <children>
+        <!-- Datos del evento -->
+        <Label layoutX="25" layoutY="25" text="Nombre del Evento:"/>
+        <TextField fx:id="eventName" layoutX="200" layoutY="25" prefWidth="200"/>
+
+        <Label layoutX="25" layoutY="75" text="Tipo de Evento:"/>
+        <ComboBox fx:id="eventType" layoutX="200" layoutY="75" prefWidth="200"/>
+
+        <Label layoutX="25" layoutY="125" text="Detalles/Descripción:"/>
+        <TextArea fx:id="eventDetails" layoutX="200" layoutY="125" prefHeight="100" prefWidth="200"/>
+
+        <Label layoutX="25" layoutY="250" text="Fecha:"/>
+        <DatePicker fx:id="eventDate" layoutX="200" layoutY="250" prefWidth="200"/>
+
+        <Label layoutX="25" layoutY="300" text="Hora:"/>
+        <TextField fx:id="eventTime" layoutX="200" layoutY="300" prefWidth="200" promptText="HH:mm"/>
+
+        <Label layoutX="25" layoutY="350" text="Lugar del Evento:"/>
+        <TextField fx:id="eventPlace" layoutX="200" layoutY="350" prefWidth="200"/>
+
+        <Label layoutX="25" layoutY="400" text="Capacidad Máxima de Personas:"/>
+        <HBox spacing="10" layoutX="200" layoutY="400">
+            <TextField fx:id="eventCapacity" prefWidth="200"/>
+            <Button fx:id="btnAddCapacity" text="Agregar Asientos" onAction="#handleAddCapacity"/>
+            <Button fx:id="btnResetZones" text="Eliminar Zonas" onAction="#handleResetZones"/>
+        </HBox>
+
+        <!-- Sección de Zonas -->
+        <Separator layoutX="25" layoutY="450" prefWidth="550"/>
+        <Label layoutX="25" layoutY="470" text="Zonas del Evento" style="-fx-font-weight: bold"/>
+
+        <Button layoutX="200" layoutY="470" onAction="#openZoneForm" text="Gestionar Zonas"/>
+        <ListView fx:id="zoneList" layoutX="25" layoutY="500" prefHeight="150" prefWidth="550"/>
+
+        <!-- Botón crear evento -->
+        <Button fx:id="bt_CreateEvent" layoutX="250" layoutY="670" onAction="#handleCreateEvent" text="Crear Evento"/>
+    </children>
+</AnchorPane>

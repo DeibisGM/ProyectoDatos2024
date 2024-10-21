@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="business.ZoneFormController">
+    <children>
+        <Label layoutX="25" layoutY="30" text="Agregar Zonas" style="-fx-font-size: 18; -fx-font-weight: bold" />
+
+        <Label layoutX="25" layoutY="80" text="Nombre de Zona:" />
+        <TextField fx:id="zoneName" layoutX="150" layoutY="80" prefWidth="200" />
+
+        <Label layoutX="25" layoutY="120" text="Precio:" />
+        <TextField fx:id="zonePrice" layoutX="150" layoutY="120" prefWidth="200" />
+
+        <Label layoutX="25" layoutY="160" text="Cantidad de Asientos:" />
+        <TextField fx:id="zoneCapacity" layoutX="150" layoutY="160" prefWidth="200" />
+
+        <Label layoutX="25" layoutY="200" text="Categoría:" />
+        <ComboBox fx:id="zoneCategory" layoutX="150" layoutY="200" prefWidth="200" />
+
+        <Button layoutX="150" layoutY="250" onAction="#handleAddZone" text="Agregar Zona" />
+
+        <ListView fx:id="zoneList" layoutX="25" layoutY="290" prefHeight="150" prefWidth="450" />
+
+        <HBox spacing="10" alignment="CENTER" layoutX="0" layoutY="350" prefWidth="500">
+            <Button onAction="#handleFinish" text="Finalizar" />
+            <Button onAction="#handleCancel" text="Cancelar" />
+        </HBox>
+
+        <Label layoutX="25" layoutY="30" text="Capacidad Total:" fx:id="totalCapacityLabel" AnchorPane.rightAnchor="25" />
+        <Label layoutX="25" layoutY="50" text="Asientos Restantes:" fx:id="remainingCapacityLabel" AnchorPane.rightAnchor="25" />
+    </children>
+</AnchorPane>
